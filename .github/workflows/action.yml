@@ -32,7 +32,7 @@ jobs:
             os: ubuntu-latest
             cc: clang
             cxx: clang++
-            build-system: cmake
+            build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
               -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_LATEST_HOME/build/cmake/android.toolchain.cmake
@@ -43,7 +43,7 @@ jobs:
             os: ubuntu-latest
             cc: clang
             cxx: clang++
-            build-system: cmake
+            build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
               -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_LATEST_HOME/build/cmake/android.toolchain.cmake
@@ -54,7 +54,7 @@ jobs:
             os: ubuntu-latest
             cc: clang
             cxx: clang++
-            build-system: cmake
+            build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
               -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_LATEST_HOME/build/cmake/android.toolchain.cmake
@@ -65,7 +65,7 @@ jobs:
             os: ubuntu-latest
             cc: clang
             cxx: clang++
-            build-system: cmake
+            build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
               -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_LATEST_HOME/build/cmake/android.toolchain.cmake
@@ -276,6 +276,18 @@ jobs:
           cmake .. -G "${{matrix.cmake-generator}}" ${{matrix.cmake-options}}
           cmake --build . --config Release
           ctest
+
+      - name: Configure, build and test with CMake for Android
+        env:
+          CC: ${{ matrix.cc }}
+          CXX: ${{ matrix.cxx }}
+          VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+        if: startsWith(matrix.build-os,'android')
+        run: |
+          mkdir build
+          cd build
+          cmake .. -G "${{matrix.cmake-generator}}" ${{matrix.cmake-options}}
+          cmake --build . --config Release
 
       - name: Configure, build and test with OSSFuzz
         env:
