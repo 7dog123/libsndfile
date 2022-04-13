@@ -11,7 +11,7 @@ jobs:
           ubuntu-clang-android-aarch,
           ubuntu-clang-android-armv7,
           ubuntu-clang-android-x86,
-          ubuntu-clang-android-x86_64
+          ubuntu-clang-android-x86_64,
           ubuntu-gcc-autotools,
           ubuntu-clang-autotools,
           ubuntu-gcc-ossfuzz,
