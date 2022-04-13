@@ -8,6 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         name: [
+          ubuntu-clang-android,
           ubuntu-gcc-autotools,
           ubuntu-clang-autotools,
           ubuntu-gcc-ossfuzz,
@@ -24,6 +25,15 @@ jobs:
           windows-vs2019-Win32-shared
         ]
         include:
+          - name: ubuntu-clang-android
+            os: ubuntu-latest
+            build-system: cmake
+            cmake-generator: 'Unix Makefiles'
+            cmake-options: >-
+              -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_LATEST_HOME/build/cmake/android.toolchain.cmake
+              -DANDROID_ABI="x86 armeabi-v7a arm64-v8a x86_64"
+              -DANDROID_PLATFORM="27 28 29 30 31 32"
+
           - name: ubuntu-gcc-autotools
             os: ubuntu-latest
             cc: gcc
