@@ -30,8 +30,8 @@ jobs:
         include:
           - name: ubuntu-clang-android-aarch
             os: ubuntu-latest
-            cc: clang
-            cxx: clang++
+            cc: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+            cxx: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
             build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
@@ -41,8 +41,8 @@ jobs:
 
           - name: ubuntu-clang-android-armv7
             os: ubuntu-latest
-            cc: clang
-            cxx: clang++
+            cc: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+            cxx: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
             build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
@@ -52,8 +52,8 @@ jobs:
 
           - name: ubuntu-clang-android-x86
             os: ubuntu-latest
-            cc: clang
-            cxx: clang++
+            cc: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+            cxx: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
             build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
@@ -63,8 +63,8 @@ jobs:
 
           - name: ubuntu-clang-android-x86_64
             os: ubuntu-latest
-            cc: clang
-            cxx: clang++
+            cc: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+            cxx: $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
             build-os: android
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
