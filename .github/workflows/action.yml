@@ -27,6 +27,8 @@ jobs:
         include:
           - name: ubuntu-clang-android
             os: ubuntu-latest
+            cc: clang
+            cxx: clang++
             build-system: cmake
             cmake-generator: 'Unix Makefiles'
             cmake-options: >-
